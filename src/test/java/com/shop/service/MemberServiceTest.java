@@ -1,6 +1,6 @@
 package com.shop.service;
 
-import com.shop.dto.MemberFromDto;
+import com.shop.dto.MemberFormDto;
 import com.shop.entity.Member;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,7 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 @Transactional
@@ -23,7 +24,7 @@ class MemberServiceTest {
     PasswordEncoder passwordEncoder;
 
     public Member createMember(){
-        MemberFromDto memberFromDto = new MemberFromDto();
+        MemberFormDto memberFromDto = new MemberFormDto();
         memberFromDto.setEmail("test@email.com");
         memberFromDto.setName("홍길동");
         memberFromDto.setAddress("서울시 마포구 합정동");
